@@ -330,6 +330,7 @@ class StructuredAgent(SimpleChatAgent):
     def chat(
         self, 
         message: str,
+        append: bool = False,
         max_tokens: int = 300,
         response_format = None,
     ):
@@ -348,6 +349,11 @@ class StructuredAgent(SimpleChatAgent):
         else:
             raise ValueError(f"Model {self.model} not supported")
 
+        if append:
+            text_result = result.choices[0].message.content 
+            self.messages.append({"role": "system", "content": text_result})
+        else:
+            self.reset()
         return result
 
 class LogitsAgent:
