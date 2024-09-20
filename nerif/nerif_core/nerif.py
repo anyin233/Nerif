@@ -207,6 +207,8 @@ class Nerif:
         debug: bool = False
         
     Methods:
+        structured_mode(text: str, max_retry: int = 5) -> bool:
+            Judge the truthfulness of the statement using structured mode.
         logits_mode(text: str) -> bool:
             Judge the truthfulness of the statement using logits mode.
         embedding_mode(text: str) -> bool:
