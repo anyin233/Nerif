@@ -299,6 +299,20 @@ class SimpleEmbeddingAgent:
         return result.data[0]["embedding"]
 
 class StructuredAgent(SimpleChatAgent):
+    """
+    An agent for structured response.
+
+    Attributes:
+        proxy_url (str): The URL of the proxy server for API requests.
+        api_key (str): The API key for authentication.
+        model (str): The name of the embedding model to use.
+        default_prompt (str): The default system prompt for the chat.
+        temperature (float): The temperature setting for response generation.
+
+    Methods:
+        chat(message: str, max_tokens: int = 300, response_format: Any = None) -> Any: Chat with structured
+        response.
+    """ 
     
     def __init__(
         self, 

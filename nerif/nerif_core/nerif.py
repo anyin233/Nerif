@@ -32,8 +32,17 @@ def similarity_dist(vec1, vec2, func="cosine"):
 
 class NerifFormat:
     """
-    This class is used to convert LLM's output to specific type/format.
+    This class is used to supress the format of the request.
     
+    Attributes:
+        model: str = NERIF_DEFAULT_LLM_MODEL
+        temperature: float = 0
+        default_prompt: str = None
+        debug: bool = False
+        
+    Methods:
+        wrap_cls(cls) -> BaseModel: Wrap the class with BaseModel.
+        format_request(cls, text: str) -> cls: Do structured request.
     """
     
     def __init__(
